@@ -11,10 +11,30 @@ using std::ifstream;
 using std::stringstream;
 
 
-//STUDENT: Add the getAverageTemperature function here
-//  you used this function in a previous homework and 
-//  it has been discussed in lecture, copy it here so 
-//  it can be used below
+/*
+  STUDENT: Write a function that will take a 
+  vector of WeatherReport and return the max temperature
+*/
+
+/*
+  STUDENT: write a function that will take a vector of 
+  WeatherReport and return the average wind speed
+*/
+
+/*
+  STUDENT: write a function that will take a vector of 
+  WeatherReport and return a vector of double that contains
+  the temperature values from the vector of weather report
+*/
+
+/*
+  STUDENT: write a function that will take a vector of
+  WeatherReport and a percentage number between 0 and 1,
+  and will return a vector of WeatherReport
+  that is n% of the values in the original vector.
+  The purpose of this is to split up the list of weather 
+  reports into a smaller list.
+*/
 
 
 
@@ -96,9 +116,10 @@ int main() {
       vector<WeatherReport> reports = it->second; //second is the value, the reports for this location
       cout << location << " - " << reports.size() << endl;
 
-      //STUDENT: cout the average temperature for each location
+      //STUDENT: using your function above that will return 80% of the 
+      // values, get two vector of WeatherReports for this station
+      // that are 80% and 20% of the original vectors
 
   }
 
-  //STUDENT: find the location with the highest average temperature
 }
