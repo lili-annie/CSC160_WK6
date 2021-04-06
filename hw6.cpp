@@ -15,18 +15,41 @@ using std::stringstream;
   STUDENT: Write a function that will take a 
   vector of WeatherReport and return the max temperature
 */
+double getMazimumTemperature(vector<WeatherReport> reports) {
+  double max = -9999;
+  for (int i = 0; i < reports.size(); i++){
+    max = reports[i].getTemperature();
+  }
+  return max;
+}
 
 /*
   STUDENT: write a function that will take a vector of 
   WeatherReport and return the average wind speed
 */
+double getAverageWindSpeed(vector<WeatherReport> reports) {
+  double sum = 0;
+  int size = reports.size();
+  for (int i = 0; i < size; i++) {
+    double WindSpeed = reports.at(i).getWindSpeed();
+    sum = sum + WindSpeed;
+  }
+  double avg = sum / size;
+  return avg;
+}
 
 /*
   STUDENT: write a function that will take a vector of 
   WeatherReport and return a vector of double that contains
   the temperature values from the vector of weather report
 */
-
+vector<double> getTemperatureValues(vector<WeatherReport> reports) {
+  vector<double> values;
+  for (int i = 0; i < reports.size(); i++) {
+    values.push_back(reports[i].getTemperature());
+  }
+  return values;
+}
 /*
   STUDENT: write a function that will take a vector of
   WeatherReport and a percentage number between 0 and 1,
@@ -35,7 +58,15 @@ using std::stringstream;
   The purpose of this is to split up the list of weather 
   reports into a smaller list.
 */
-
+vector<WeatherReport> splitReports(vector<WeatherReport> reports, double percentage) {
+  vector<WeatherReport> smallerlist;
+  int size = reports.size();
+  double newSize = size * percentage;
+  for (int i = 0; i < newSize; i++) {
+    smallerlist.push_back(reports[i]);
+  }
+  return smallerlist;
+}
 
 
 vector<string> splitLine(string line) {
@@ -116,9 +147,13 @@ int main() {
       vector<WeatherReport> reports = it->second; //second is the value, the reports for this location
       cout << location << " - " << reports.size() << endl;
 
+      vector<WeatherReport> smallerlist = splitReports(reports, 0.8);
+
+      cout << "smaller size is " << smallerlist.size() << endl;
       //STUDENT: using your function above that will return 80% of the 
       // values, get two vector of WeatherReports for this station
       // that are 80% and 20% of the original vectors
+
 
   }
 
